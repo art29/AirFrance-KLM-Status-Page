@@ -1,6 +1,6 @@
 {
   "name": "airfrance-status-react",
-  "homepage": "http://art29.github.io/airfrance-klm-status-page",
+  "homepage": "https://flights.afetiveau.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
