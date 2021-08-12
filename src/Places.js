@@ -5,39 +5,39 @@ const Places = ({places, type}) => {
     return (
         <div>
             {(type === "D") ? (
-                <div>
-                    {places['terminalCode'] !== undefined && <p>Terminal: {places['terminalCode']}</p>}
-                    {places['gateNumber'] !== undefined && <p>Check-In Zone: {places['checkInZone'].join(", ")}</p>}
-                    {places['terminalCode'] !== undefined && <p>Boarding Terminal: {places['boardingTerminal']}</p>}
-                    {places['gateNumber'] !== undefined && <p>Gate Number: {places['gateNumber'].join(", ")}</p>}
+                <p>
+                    {places['terminalCode'] !== undefined && <span>Terminal: {places['terminalCode']}<br/></span>}
+                    {places['gateNumber'] !== undefined && <span>Check-In Zone: {places['checkInZone'].join(", ")}<br/></span>}
+                    {places['terminalCode'] !== undefined && <span>Boarding Terminal: {places['boardingTerminal']}<br/></span>}
+                    {places['gateNumber'] !== undefined && <span>Gate Number: {places['gateNumber'].join(", ")}<br/></span>}
                     {places['boardingContactType'] !== undefined &&
                     (places['boardingContactType'] === "C") ?
-                        <p>Contact Type: JetBridge </p>
+                        <span>Contact Type: JetBridge <br/></span>
                         : (places['boardingContactType'] === "F") ?
-                            <p>Contact Type: Gate but by foot/bus {places['boardingContactType'] !== undefined &&
-                            <span>({places['boardingBusQuantity']} bus(es) incoming)</span>}</p>
+                            <span>Contact Type: Gate but by foot/bus {places['boardingContactType'] !== undefined &&
+                            <span>({places['boardingBusQuantity']} bus(es) incoming)</span>}<br/></span>
                             : (places['boardingContactType'] === "L") ?
-                                <p>Contact Type: Remote, by bus {places['boardingContactType'] !== undefined &&
-                                <span>({places['boardingBusQuantity']} bus(es) incoming)</span>}</p>
+                                <span>Contact Type: Remote, by bus {places['boardingContactType'] !== undefined &&
+                                <span>({places['boardingBusQuantity']} bus(es) incoming)</span>}<br/></span>
                                 : ""}
-                </div>
+                </p>
             ) : (
-                <div>
-                    {places['terminalCode'] !== undefined && <p>Terminal: {places['terminalCode']}</p>}
-                    {places['parkingPosition'] !== undefined && <p>Parking Position: {places['parkingPosition']}</p>}
+                <p>
+                    {places['terminalCode'] !== undefined && <span>Terminal: {places['terminalCode']}<br/></span> }
+                    {places['parkingPosition'] !== undefined && <span>Parking Position: {places['parkingPosition']}<br/></span>}
                     {places['boardingContactType'] !== undefined &&
                     (places['disembarkingContactType'] === "C") ?
-                        <p>Contact Type: JetBridge </p>
+                        <span>Contact Type: JetBridge <br/></span>
                         : (places['disembarkingContactType'] === "F") ?
-                            <p>Contact Type: Gate but by foot/bus {places['disembarkingContactType'] !== undefined &&
-                            <span>({places['disembarkingBusQuantity']} bus(es) incoming)</span>}</p>
+                            <span>Contact Type: Gate but by foot/bus {places['disembarkingContactType'] !== undefined &&
+                            <span>({places['disembarkingBusQuantity']} bus(es) incoming)</span>}<br/></span>
                             : (places['disembarkingContactType'] === "L") ?
-                                <p>Contact Type: Remote, by bus {places['disembarkingContactType'] !== undefined &&
-                                <span>({places['disembarkingBusQuantity']} bus(es) incoming)</span>}</p>
+                                <span>Contact Type: Remote, by bus {places['disembarkingContactType'] !== undefined &&
+                                <span>({places['disembarkingBusQuantity']} bus(es) incoming)</span>}<br/></span>
                                 : ""}
                     {places['baggageBelt'] !== undefined && places['baggageBelt'] > 1 &&
-                    <p>Bagage Belt(s): {places['baggageBelt'].join(", ")}</p>}
-                </div>
+                    <span>Bagage Belt(s): {places['baggageBelt'].join(", ")}<br/></span>}
+                </p>
             )}
         </div>
     );

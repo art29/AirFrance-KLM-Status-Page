@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route,} from "react-router-dom";
 import Status from "./Status";
 import About from "./About";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const RouterPage = () => {
     return (
@@ -12,6 +13,7 @@ const RouterPage = () => {
                 <Route exact path="/" component={Status}/>
                 <Route path="/about" component={About}/>
             </Router>
+            <Footer/>
         </div>
     );
 };

@@ -47,14 +47,14 @@ const FlightLeg = ({flightLeg, id}) => {
                             <br/>
                             {flightLeg['departureInformation']['airport']['city']['nameLangTranl']}, {flightLeg['departureInformation']['airport']['city']['country']['code']}
                         </p>
-                        <h4>Scheduled Departure
-                            Time: {format_date(flightLeg['departureInformation']['times']['scheduled'])}</h4>
+                        <p className="fs-5">Scheduled Departure
+                            Time: {format_date(flightLeg['departureInformation']['times']['scheduled'])}</p>
                         {(flightLeg['departureInformation']['times']['actualTakeOffTime'] === undefined) ? (
-                            <h4>Latest Available Departure
-                                Time: {format_date(flightLeg['departureInformation']['times']['latestPublished'])}</h4>
+                            <p className="fs-5">Latest Available Departure
+                                Time: {format_date(flightLeg['departureInformation']['times']['latestPublished'])}</p>
                         ) : (
-                            <h4>Departed
-                                At: {format_date(flightLeg['departureInformation']['times']['actualTakeOffTime'])}</h4>
+                            <p className="fs-5">Departed
+                                At: {format_date(flightLeg['departureInformation']['times']['actualTakeOffTime'])}</p>
                         )}
                         <Places places={flightLeg['departureInformation']['airport']['places']} type={"D"}/>
                     </div>
@@ -72,13 +72,13 @@ const FlightLeg = ({flightLeg, id}) => {
                             <br/>
                             {flightLeg['arrivalInformation']['airport']['city']['nameLangTranl']}, {flightLeg['arrivalInformation']['airport']['city']['country']['code']}
                         </p>
-                        <h4>Scheduled Arrival
-                            Time: {format_date(flightLeg['arrivalInformation']['times']['latestPublished'])}</h4>
+                        <p className="fs-5">Scheduled Arrival
+                            Time: {format_date(flightLeg['arrivalInformation']['times']['latestPublished'])}</p>
                         {(flightLeg['arrivalInformation']['times']['actual'] === undefined) ? (
-                            <h4>Latest Available Arrival
-                                Time: {format_date(flightLeg['arrivalInformation']['times']['latestPublished'])}</h4>
+                            <p className="fs-5">Latest Available Arrival
+                                Time: {format_date(flightLeg['arrivalInformation']['times']['latestPublished'])}</p>
                         ) : (
-                            <h4>Arrived at: {format_date(flightLeg['arrivalInformation']['times']['actual'])}</h4>
+                            <p className="fs-5">Arrived at: {format_date(flightLeg['arrivalInformation']['times']['actual'])}</p>
                         )}
                         <Places places={flightLeg['arrivalInformation']['airport']['places']} type="A"/>
                     </div>

@@ -23,9 +23,7 @@ const FlightResult = (flight) => {
                         </details>
                         <div>
                             {flight.flight['flightLegs'].map((flightLeg, i) => (
-                                <>
-                                    <FlightLeg flightLeg={flightLeg} id={i + "_" + flight.flight.id.split("+")[0]}/>
-                                </>
+                                <FlightLeg flightLeg={flightLeg} id={i + "_" + flight.flight.id.split("+")[0]}/>
                             ))}
                         </div>
                     </div>
