@@ -28,4 +28,4 @@ You will also see any lint errors in the console.
 
 ### `yarn deploy`
 
-Deploy to GitHub pages
+Deploy to GitHub pages (Check out react-gh-pages for more details about that)

@@ -1,5 +1,7 @@
 import React from "react";
 import FlightLeg from "./FlightLeg";
+import ReactJson from "react-json-view";
+import { CodeSlash } from "react-bootstrap-icons";
 
 const FlightResult = (flight) => {
   return (
@@ -11,6 +13,46 @@ const FlightResult = (flight) => {
               <summary className="h3 fw-bold mb-0">
                 {flight.flight["airline"]["code"]}
                 {flight.flight["flightNumber"]}
+                <button
+                  type="button"
+                  className="btn btn-primary float-end"
+                  data-bs-toggle="modal"
+                  data-bs-target={"#json_" + flight.flight.id.split("+")[0]}
+                >
+                  <CodeSlash />
+                </button>
+
+                <div
+                  className="modal fade"
+                  id={"json_" + flight.flight.id.split("+")[0]}
+                  tabIndex="-1"
+                  aria-labelledby={"json_" + flight.flight.id.split("+")[0]}
+                  aria-hidden="true"
+                >
+                  <div className="modal-dialog modal-xl">
+                    <div className="modal-content">
+                      <div className="modal-body">
+                        <p className="fs-6 text-start">
+                          <ReactJson
+                            src={flight}
+                            onEdit={false}
+                            onAdd={false}
+                            onDelete={false}
+                          />
+                        </p>
+                      </div>
+                      <div className="modal-footer">
+                        <button
+                          type="button"
+                          className="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </summary>
               <ul className="list-group list-group-flush">
                 {flight.flight["codeShareRelations"].map((codeShare) => (
