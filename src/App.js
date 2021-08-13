@@ -1,10 +1,19 @@
 import './App.css';
-import RouterPage from "./RouterPage";
+import Header from "./Header";
+import {HashRouter, Route} from "react-router-dom";
+import Status from "./Status";
+import About from "./About";
+import Footer from "./Footer";
 
 function App() {
     return (
         <div className="App">
-            <RouterPage/>
+            <HashRouter basename="/">
+                <Header/>
+                <Route exact path="/" component={Status}/>
+                <Route path="/about" component={About}/>
+                <Footer/>
+            </HashRouter>
         </div>
     );
 }

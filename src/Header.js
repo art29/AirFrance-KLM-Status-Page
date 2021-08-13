@@ -1,16 +1,17 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const Header = () => {
     return (
         <ul className="nav justify-content-center">
             <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">Home</a>
+                <Link to="/" className="nav-link active">Home</Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="/about">About</a>
+                <Link to="/about" className="nav-link">About</Link>
             </li>
         </ul>
     );
 };
 
-export default Header
+export default Header;

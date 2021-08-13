@@ -27,15 +27,21 @@ const FlightLeg = ({flightLeg, id}) => {
             </div>
             }
             {(flightLeg['status'] === "C" || flightLeg['status'] === "X") &&
-            <div className="alert alert-danger" role="alert">
-                Flight has been cancelled. Please contact your airline for details.
-            </div>
+            <>
+                <br/>
+                <div className="alert alert-danger" role="alert">
+                    Flight has been cancelled. Please contact your airline for details.
+                </div>
+            </>
             }
             {flightLeg['irregularity']['delayReasonPublicLangTransl'] !== undefined &&
             flightLeg['irregularity']['delayReasonPublicLangTransl'].map((delay) => (
-                <div className="alert alert-danger" role="alert">
-                    {delay}
-                </div>
+                <>
+                    <br/>
+                    <div className="alert alert-danger" role="alert">
+                        {delay}
+                    </div>
+                </>
             ))
             }
             <br/>
@@ -78,7 +84,8 @@ const FlightLeg = ({flightLeg, id}) => {
                             <p className="fs-5">Latest Available Arrival
                                 Time: {format_date(flightLeg['arrivalInformation']['times']['latestPublished'])}</p>
                         ) : (
-                            <p className="fs-5">Arrived at: {format_date(flightLeg['arrivalInformation']['times']['actual'])}</p>
+                            <p className="fs-5">Arrived
+                                at: {format_date(flightLeg['arrivalInformation']['times']['actual'])}</p>
                         )}
                         <Places places={flightLeg['arrivalInformation']['airport']['places']} type="A"/>
                     </div>
@@ -88,7 +95,7 @@ const FlightLeg = ({flightLeg, id}) => {
                 <button type="button" data-bs-toggle="collapse"
                         data-bs-target={"#collapseMoreInfo" + id} aria-expanded="false"
                         aria-controls={"collapseMoreInfo" + id}
-                        className="btn btn-lg btn-primary mt-5 w-100">More info
+                        className="btn btn-lg btn-primary mt-1 w-100">More info
                 </button>
             </p>
             <div className="collapse" id={"collapseMoreInfo" + id}>
@@ -110,4 +117,4 @@ const FlightLeg = ({flightLeg, id}) => {
     )
 }
 
-export default FlightLeg
+export default FlightLeg;
