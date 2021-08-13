@@ -29,7 +29,7 @@ const FlightLeg = ({ flightLeg, id }) => {
             )}
           {flightLeg["completionPercentage"] &&
             flightLeg["legStatusPublicLangTransl"] !== "Arrived" &&
-            flightLeg["completionPercentage"] !== 0 && (
+            flightLeg["completionPercentage"] !== "0" && (
               <span>({flightLeg["completionPercentage"]}%)</span>
             )}
           {flightLeg["otherFlightLegStatuses"] &&
