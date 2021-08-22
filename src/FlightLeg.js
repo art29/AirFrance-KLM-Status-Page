@@ -120,7 +120,15 @@ const FlightLeg = ({ flightLeg, id }) => {
             />
             <p>{flightLeg["aircraft"]["typeName"]}</p>
             {flightLeg["aircraft"]["registration"] && (
-              <p>(Reg. {flightLeg["aircraft"]["registration"]})</p>
+              <p>
+                (Reg.{" "}
+                {flightLeg["aircraft"]["registration"][0] === "F"
+                  ? flightLeg["aircraft"]["registration"][0] +
+                    "-" +
+                    flightLeg["aircraft"]["registration"].substr(1)
+                  : flightLeg["aircraft"]["registration"]}
+                )
+              </p>
             )}
           </div>
           <div className="feature col-md-5">

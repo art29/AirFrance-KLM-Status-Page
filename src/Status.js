@@ -7,7 +7,7 @@ class Status extends React.Component {
     this.state = {
       results: [],
       airline: "AF",
-      flight_number: "",
+      flightNumber: "",
       errorMessage: "",
     }; // Result and Flight Number states
     this.handleAirlineUpdate = this.handleAirlineUpdate.bind(this);
@@ -19,15 +19,15 @@ class Status extends React.Component {
   }
 
   handleFlightNumberUpdate(event) {
-    this.setState({ flight_number: event.target.value }); // Set flight number when updating input
+    this.setState({ flightNumber: event.target.value }); // Set flight number when updating input
   }
 
-  fetchFlights = (airline, flight_number, start_date, end_date) => {
+  fetchFlights = (airline, flightNumber, start_date, end_date) => {
     fetch(
       "https://api.airfranceklm.com/opendata/flightstatus/?carrierCode=" +
         airline +
         "&flightNumber=" +
-        flight_number +
+        flightNumber +
         "&startRange=" +
         start_date +
         "&endRange=" +
@@ -41,14 +41,15 @@ class Status extends React.Component {
     )
       .then((response) => response.json())
       .then((result) => {
+        this.setState({ results: [] });
         if (result["operationalFlights"]) {
           this.setState({ results: result["operationalFlights"] });
         } else {
           this.setState({ errorMessage: result["errors"][0]["description"] });
-          console.error("There was an error!", this.state.errorMessage);
         }
       })
       .catch((error) => {
+        this.setState({ results: [] });
         this.setState({ errorMessage: error.toString });
         console.error("There was an error!", error);
       });
@@ -56,14 +57,14 @@ class Status extends React.Component {
 
   toggleButtonState = () => {
     let airline = this.state.airline; // Airline
-    let flight_number = this.state.flight_number; // Flight_number
+    let flightNumber = this.state.flightNumber; // flightNumber
     let start_date = new Date();
     start_date.setDate(start_date.getDate() - 1); // Set date 24h before
     let end_date = new Date();
     end_date.setDate(end_date.getDate() + 3); // Set end date to 3 days from now
     this.fetchFlights(
       airline,
-      flight_number,
+      flightNumber,
       start_date.toISOString().split(".")[0] + "Z",
       end_date.toISOString().split(".")[0] + "Z"
     );
@@ -106,7 +107,7 @@ class Status extends React.Component {
                 id="flight-number"
                 placeholder="349"
                 onChange={this.handleFlightNumberUpdate}
-                value={this.state.flight_number}
+                value={this.state.flightNumber}
               />
             </div>
             <div className="d-grid gap-2 mt-1 d-sm-flex justify-content-sm-center">
@@ -129,7 +130,8 @@ class Status extends React.Component {
             </div>
             {this.state.errorMessage !== "" && (
               <div className={"alert alert-danger mt-3"}>
-                {this.state.errorMessage}
+                Error getting the flight you are asking for ...
+                {this.state.errorMessage ? this.state.errorMessage : ""}
               </div>
             )}
           </div>
