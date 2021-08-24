@@ -62,9 +62,9 @@ const FlightResult = (flight) => {
                     {codeShare["airline"]["name"]})
                   </li>
                 ))}
-                {flight.flight["codeShareRelations"] && (
+                {!flight.flight["codeShareRelations"] && (
                   <li className="list-group-item">
-                    There is not codeshare on this flight
+                    There is no codeshare on this flight
                   </li>
                 )}
                 <br />
