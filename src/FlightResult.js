@@ -55,18 +55,18 @@ const FlightResult = (flight) => {
                 </div>
               </summary>
               <ul className="list-group list-group-flush">
-                {flight.flight["codeShareRelations"].map((codeShare) => (
-                  <li className="list-group-item">
-                    {codeShare["airline"]["code"]}
-                    {codeShare["marketingFlightNumber"]} (
-                    {codeShare["airline"]["name"]})
-                  </li>
-                ))}
-                {!flight.flight["codeShareRelations"] && (
-                  <li className="list-group-item">
+                {flight.flight["codeShareRelations"] ?
+                  (flight.flight["codeShareRelations"].map((codeShare) => (
+                    <li className="list-group-item">
+                      {codeShare["airline"]["code"]}
+                      {codeShare["marketingFlightNumber"]} (
+                      {codeShare["airline"]["name"]})
+                    </li>
+                  ))) : (
+                    <li className="list-group-item">
                     There is no codeshare on this flight
-                  </li>
-                )}
+                    </li>
+                  )}
                 <br />
               </ul>
             </details>
