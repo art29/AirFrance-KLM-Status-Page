@@ -107,10 +107,12 @@ const FlightLeg = ({ flightLeg, id }) => {
                 )}
               </p>
             )}
-            <Places
-              places={flightLeg["departureInformation"]["airport"]["places"]}
-              type={"D"}
-            />
+            { flightLeg["departureInformation"]["airport"] && (
+              <Places
+                places={flightLeg["departureInformation"]["airport"]["places"]}
+                type={"D"}
+              />
+            )}
           </div>
           <div className="feature col-md-2">
             <img
@@ -172,10 +174,13 @@ const FlightLeg = ({ flightLeg, id }) => {
                 )}
               </p>
             )}
-            <Places
-              places={flightLeg["arrivalInformation"]["airport"]["places"]}
-              type="A"
-            />
+            { flightLeg["arrivalInformation"]["airport"]["places"] && (
+              <Places
+                places={flightLeg["arrivalInformation"]["airport"]["places"]}
+                type="A"
+              />
+            )
+            }
           </div>
         </div>
       </div>
