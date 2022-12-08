@@ -107,7 +107,7 @@ const FlightLeg = ({ flightLeg, id }) => {
                 )}
               </p>
             )}
-            { flightLeg["departureInformation"]["airport"] && (
+            { flightLeg["departureInformation"]["airport"]["places"] && (
               <Places
                 places={flightLeg["departureInformation"]["airport"]["places"]}
                 type={"D"}
