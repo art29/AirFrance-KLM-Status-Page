@@ -1,5 +1,9 @@
 # Air France/KLM Status page
 
+**This website is now deprecated since the code is not up to date.**
+
+**A better version will be unveiled soon with a better UI, I18N support (EN/FR) and newer tech: React, Vite, and Typescript and hosted on Cloudflare's Pages.dev! The link to the new repo will be available as soon as the website gets released.**
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Air France/KLM Status page is a React App made to check flight statuses for AF/KLM flights with more information than
